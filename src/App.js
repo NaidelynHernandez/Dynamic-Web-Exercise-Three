@@ -6,12 +6,12 @@ import {
 
 
 import './App.css';
-import Home from "./pages/Home";
+import Home from "./pages/Home"; // IMPORTANT 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home />,  // retrieving from home.js 
   },
 ]);
 
@@ -25,4 +25,5 @@ function App() {
   );
 }
 
-export default App;
+export default App;    //IMPORTANT 
+ 
