@@ -4,7 +4,13 @@ import { useSearchParams } from 'react-router-dom'; // https://ultimatecourses.c
 import {WEATHER_APP_API_KEY}  from "../API_KEYS";
 import WeatherCard from "../components/WeatherCard"; 
 import Header from "../components/Header"; 
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
+import WeatherIcon from "../components/WeatherIcon"; 
+
+
+
+
+
+//import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
 
 
@@ -15,20 +21,17 @@ function Home (){
 
     const [weatherData, setWeatherData]= useState({});
     const [city,setCity]= useState("Orlando"); 
-    const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();// https://ultimatecourses.com/blog/query-strings-search-params-react-router
 
 
     //Cities: Seoul, Chicago, Orlando, Bogota using react router Query Parameters 
  
     // console.log('city', CityValue)
-    // console.log(')
-
-
-  // makes it so that data doesn't infinetely loop
+    // console.log("searchParams", searchParama.get("city"));
     // Query OpenWeatherAPI for weather data 
      // make request to OpenWeather based on a city 
 
-    
+      // makes it so that data doesn't infinetely loop
     useEffect(() => { 
         const cityToQuery = searchParams.get("city")  || city; 
         setCity(cityToQuery);
@@ -47,9 +50,14 @@ function Home (){
     }, []);
 
 
+
+
+
+
     // callback function 
     // equal to undefined or empty object: value || {} humidity no longer undefined
-    
+
+
     const { 
         cloudiness, 
         humidity, 
@@ -60,17 +68,17 @@ function Home (){
         windSpeed,
         } = useMemo(() => { 
 
-        const weatherMain = weatherData.main || {};   
-        const weatherClouds= weatherData.clouds || {}; 
+        const weatherMain = weatherData.main || {};   // 
+        const weatherClouds= weatherData.clouds || {}; // targetting the clouds section in array 
         
 
         // restructures return 
         return {
             humidity: weatherMain.humidity,
             cloudiness: weatherClouds.all,
-            currentTemp: Math.round(weatherMain.temp),
-            highTemp:Math.round(weatherMain.temp_max),
-            lowTemp:Math.round(weatherMain.temp_min),
+            currentTemp: Math.round(weatherMain.temp),  // this is retrieving the temp from the array, under main
+            highTemp:Math.round(weatherMain.temp_max),   // this is retrieving the temp from the array, under main
+            lowTemp:Math.round(weatherMain.temp_min),    // this is retrieving the temp from the array, under main
             windSpeed:weatherData.wind && weatherData.wind.speed,
             weatherType: weatherData.weather && weatherData.weather[0].main,
 
@@ -84,6 +92,8 @@ function Home (){
 
     return (
          <div>
+            <div style= {{backgroundColor: 'rgba(0,0,0, ${ cloudiness /100})'}}> </div>
+
              <Header></Header>
              <h1> Weather App</h1>
             <WeatherCard 
@@ -97,6 +107,7 @@ function Home (){
             windSpeed={windSpeed}
             />
          </div>
+        
     );
 }
 
