@@ -1,0 +1,45 @@
+.WeatherCard{
+    border: solid 1px black; 
+    text-align: center;
+     
+}
+
+
+
+
+
+h1{
+  text-align: center;
+
+}
+
+
+
+
+.current{
+    font-size: 40px; 
+    font-weight: bold;
+    
+}
+
+.title{
+    color: green;
+    font-weight: lighter;
+    font-size: 70px;
+
+}
+
+.type{
+    font-size: 30px;
+    font-style: italic;
+}
+
+a {
+   text-decoration: none;
+}
+
+.nav {
+    display: flex; 
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
