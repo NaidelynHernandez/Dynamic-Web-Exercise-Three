@@ -6,29 +6,27 @@ import { faCloud, faSun, faUmbrella, faSnowflake, faBolt, } from "@fortawesome/f
 
 
 function WeatherIcon ({ weatherType}) {
+    // console.log({weatherType});
     switch(weatherType){ 
         case "Clouds": 
+        case "Fog":
             return <FontAwesomeIcon icon ={faCloud} />;
         case "Sun": 
         case "Clear":
              return <FontAwesomeIcon icon ={faSun} />;
-        case "Rain ":
+        case "Rain":
             return <FontAwesomeIcon icon ={faUmbrella} />; 
         case "Snow":
             return <FontAwesomeIcon icon ={faSnowflake} />; 
         case "Thunder": 
             return <FontAwesomeIcon icon ={faBolt} />; 
+
+        
         default: 
             return null; 
 
     }
     
 }
-
-
-
-
-
-
 
 export default WeatherIcon; 

@@ -91,10 +91,9 @@ function Home (){
 
 
     return (
-         <div>
-            <div style= {{backgroundColor: 'rgba(0,0,0, ${ cloudiness /100})'}}> </div>
-
-             <Header></Header>
+            <div style= {{backgroundColor: `rgba(0,0,0, ${ cloudiness /100})` }}> 
+             <div class-name= "Weather--wrapper">
+             <Header />
              <h1> Weather App</h1>
             <WeatherCard 
             city= {city}
@@ -106,8 +105,8 @@ function Home (){
             lowTemp={lowTemp}
             windSpeed={windSpeed}
             />
-         </div>
-        
+       </div>
+    </div> 
     );
 }
 
