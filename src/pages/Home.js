@@ -95,7 +95,9 @@ function Home (){
              <div class-name= "Weather--wrapper">
              <Header />
              <h1> Weather App</h1>
+            
             <WeatherCard 
+           
             city= {city}
             cloudiness={cloudiness}
             humidity={humidity}
@@ -103,10 +105,10 @@ function Home (){
             currentTemp={currentTemp}
             highTemp={highTemp}
             lowTemp={lowTemp}
-            windSpeed={windSpeed}
-            />
+            windSpeed={windSpeed} />
        </div>
     </div> 
+
     );
 }
 

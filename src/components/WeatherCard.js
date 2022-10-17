@@ -13,10 +13,13 @@ function WeatherCard({
  windSpeed,
 }) {
     return (
+       
         <div className="WeatherCard">
+            
             <h2 class="title">{city}</h2>
-
+            
             <div className="WeatherCard--weatherType"> 
+         
             <WeatherIcon weatherType= {weatherType} /> 
                         </div>
           
@@ -33,7 +36,8 @@ function WeatherCard({
 
 
 
-         </div>
+       
+         </div> 
     )
 
 
